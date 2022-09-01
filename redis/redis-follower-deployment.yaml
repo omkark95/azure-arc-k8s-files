@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-follower
+  namespace: default
+  labels:
+    app: redis
+    role: follower
+    tier: backend
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: follower
+        tier: backend
+        
+    spec:
+      containers:
+      - name: follower
+        image: redisguestbook.azurecr.io/redis:fe08631f610a7a2fbf5c1dc927f2787ad3044c1c
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
