@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: follower
-        image: redisguestbook.azurecr.io/redis:fe08631f610a7a2fbf5c1dc927f2787ad3044c1c
+        image: redisguestbook.azurecr.io/redis:6304cbb39b5949286bb0e91f92be395807876b7b
         resources:
           requests:
             cpu: 100m
